@@ -16,7 +16,7 @@ async function getPublicIp() {
   async function getGeoLocation(ip) {
     try {
       const response = await axios.get(`https://ipapi.co/${ip}/json/`);
-      return response.data.city || "Unknown";
+      return response.data;
     } catch (error) {
       console.error('Error fetching geolocation data:', error);
       return null;
