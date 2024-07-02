@@ -31,9 +31,8 @@ app.get('/api/hello', async (req, res) => {
 
     try {
         const publicIp = await getPublicIp();
-        const geoResponse = await getGeoLocation(publicIp);
-
-        const { city, ip } = geoResponse;
+        
+        const city = await getGeoLocation(publicIp); 
         if (!city) {
             return res.json({ message: 'Could not determine your location. Please try again.' });
         }
