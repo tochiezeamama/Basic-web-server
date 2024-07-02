@@ -29,7 +29,7 @@ app.get('/api/hello', async (req, res) => {
             console.log(geoResponse);
             return res.json({ message: 'Could not determine your location. Please try again.' });
         }
-        const weatherResponse = await axios.get(`http://api.weatherapi.com/v1/current.json?key=WEATHER_API_KEY=${city}`);
+        const weatherResponse = await axios.get(`http://api.weatherapi.com/v1/current.json?key=f4c7820e3f824011ba2204706240107&q=${city}`);
         const temperature = weatherResponse.data.current.temp_c;
         res.json({
             client_ip: ip,
